@@ -1,3 +1,5 @@
 mongodb username - shehzan1818
 mongodb password - tChJ4jNyQ22PF3o8
 mongodb string - mongodb+srv://shehzan1818:<db_password>@cluster0.ips7kka.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+mongodb+srv://shehzan1818:tChJ4jNyQ22PF3o8@cluster0.ips7kka.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
