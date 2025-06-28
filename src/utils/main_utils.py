@@ -47,7 +47,7 @@ def save_numpy_array_data(file_path : str , arr : np.array) :
         dir_name = os.path.dirname(file_path)
         os.makedirs(dir_name , exist_ok= True)
 
-        with open(dir_name , "wb") as file_obj:
+        with open(file_path, "wb") as file_obj:
             np.save(file_obj , arr)
     
     except Exception as e:
