@@ -19,18 +19,12 @@ class TargetValueMapping:
 
 class MyModel:
     def __init__(self, preprocessing_object: Pipeline, trained_model_object: object):
-        """
-        :param preprocessing_object: Input Object of preprocesser
-        :param trained_model_object: Input Object of trained model 
-        """
+        ]
         self.preprocessing_object = preprocessing_object
         self.trained_model_object = trained_model_object
 
     def predict(self, dataframe: pd.DataFrame) -> DataFrame:
-        """
-        Function accepts preprocessed inputs (with all custom transformations already applied),
-        applies scaling using preprocessing_object, and performs prediction on transformed features.
-        """
+        ]
         try:
             logging.info("Starting prediction process.")
 

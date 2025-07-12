@@ -4,7 +4,7 @@ from datetime import date
 # For MongoDB connection
 DATABASE_NAME = "Proj1"
 COLLECTION_NAME = "Proj1-Data"
-MONGODB_URL_KEY = "mongodb+srv://shehzan1818:tChJ4jNyQ22PF3o8@cluster0.ips7kka.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGODB_URL_KEY = # mongo db url key
 
 PIPELINE_NAME: str = ""
 ARTIFACT_DIR: str = "artifact"
@@ -21,8 +21,8 @@ TEST_FILE_NAME: str = "test.csv"
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 
 
-AWS_ACCESS_KEY_ID_ENV_KEY = "AWS_ACCESS_KEY_ID"
-AWS_SECRET_ACCESS_KEY_ENV_KEY = "AWS_SECRET_ACCESS_KEY"
+AWS_ACCESS_KEY_ID_ENV_KEY = # aws key 
+AWS_SECRET_ACCESS_KEY_ENV_KEY =  # aws secret key 
 REGION_NAME = "us-east-1"
 
 
@@ -67,7 +67,7 @@ MIN_SAMPLES_SPLIT_RANDOM_STATE: int = 101
 MODEL Evaluation related constants
 """
 MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
-MODEL_BUCKET_NAME = "my-model-mlopsproj"
+MODEL_BUCKET_NAME = "vehicle-insurance-prediction"
 MODEL_PUSHER_S3_KEY = "model-registry"
 
 

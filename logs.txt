@@ -1,0 +1,131 @@
+(vehicle) PS C:\Users\HP\Desktop\MLops vikash das\Project 1\mlops-vehicle-insurance-prediction-project-> python demo.py 
+[ 2025-07-12 13:18:12,031 ] root - INFO - Entered the start_data_ingestion method of TrainPipeline class
+[ 2025-07-12 13:18:12,032 ] root - INFO - Getting the data from mongodb
+[ 2025-07-12 13:18:12,032 ] root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2025-07-12 13:18:12,033 ] root - INFO - Exporting data from mongodb
+[ 2025-07-12 13:18:13,449 ] root - INFO - Mongodb connected successfully
+[ 2025-07-12 13:18:13,450 ] root - INFO - Fetching data from mongodb
+[ 2025-07-12 13:18:46,087 ] root - INFO - Data fetched with length 381109
+[ 2025-07-12 13:18:46,415 ] root - INFO - Shape of datafame : (381109, 12)
+[ 2025-07-12 13:18:46,415 ] root - INFO - Saving exported data into feature store file path artifact\07_12_2025_13_18_10\data_ingestion\feature_store
+[ 2025-07-12 13:18:48,686 ] root - INFO - Got the data from mongodb
+[ 2025-07-12 13:18:48,686 ] root - INFO - Entered split split_data_as_train_tes in data_ingestion
+[ 2025-07-12 13:18:51,390 ] root - INFO - Exported train and test file path.
+[ 2025-07-12 13:18:51,417 ] root - INFO - Performed train test split on data.
+[ 2025-07-12 13:18:51,419 ] root - INFO - Data ingestion artifact: DataIngestionArtifact(trained_file_path='artifact\\07_12_2025_13_18_10\\data_ingestion\\ingested\\train.csv', test_file_path='artifact\\07_12_2025_13_18_10\\data_ingestion\\ingested\\test.csv')
+[ 2025-07-12 13:18:51,522 ] root - INFO - Got the train_set and test_set from mongodb
+[ 2025-07-12 13:18:51,524 ] root - INFO - Exited the start_data_ingestion method of TrainPipeline class
+[ 2025-07-12 13:18:51,524 ] root - INFO - Entered the start_data_validation method of TrainPipeline class
+[ 2025-07-12 13:18:51,560 ] root - INFO - Starting data validation. 
+[ 2025-07-12 13:18:52,230 ] root - INFO - Is required columns present [True]
+[ 2025-07-12 13:18:52,230 ] root - INFO - All columns are present in training dataset .
+[ 2025-07-12 13:18:52,232 ] root - INFO - Is required columns present [True]
+[ 2025-07-12 13:18:52,232 ] root - INFO - All columns are present in test dataset .
+[ 2025-07-12 13:18:52,232 ] root - INFO - All categorical/int columns present in training dataframe: True
+[ 2025-07-12 13:18:52,232 ] root - INFO - All categorical/int columns present in testing dataframe: True
+[ 2025-07-12 13:18:52,232 ] root - INFO - Data validation artifact created and saved to JSON file.
+[ 2025-07-12 13:18:52,232 ] root - INFO - Data validation artifact: DataValidationArtifact(validation_status=True, message='', validation_report_file_path='artifact\\07_12_2025_13_18_10\\data_validation\\report.yaml')
+[ 2025-07-12 13:18:52,248 ] root - INFO - Performed the data validation operation
+[ 2025-07-12 13:18:52,249 ] root - INFO - Exited the start_data_validation method of TrainPipeline class
+[ 2025-07-12 13:18:52,256 ] root - INFO - Data Transformation Started !!!
+[ 2025-07-12 13:18:52,843 ] root - INFO - Train-Test data loaded
+[ 2025-07-12 13:18:52,865 ] root - INFO - Input and Target cols defined for both train and test df.
+[ 2025-07-12 13:18:52,866 ] root - INFO - Mapping 'Gender' column to binary values
+[ 2025-07-12 13:18:52,892 ] root - INFO - Dropping 'id' column
+[ 2025-07-12 13:18:52,905 ] root - INFO - Creating dummy variables for categorical features
+[ 2025-07-12 13:18:52,968 ] root - INFO - Renaming specific columns and casting to int
+[ 2025-07-12 13:18:52,984 ] root - INFO - Mapping 'Gender' column to binary values
+[ 2025-07-12 13:18:52,993 ] root - INFO - Dropping 'id' column
+[ 2025-07-12 13:18:52,998 ] root - INFO - Creating dummy variables for categorical features
+[ 2025-07-12 13:18:53,020 ] root - INFO - Renaming specific columns and casting to int
+[ 2025-07-12 13:18:53,027 ] root - INFO - Custom transformations applied to train and test data
+[ 2025-07-12 13:18:53,027 ] root - INFO - Starting data transformation
+[ 2025-07-12 13:18:53,028 ] root - INFO - Entered get_data_transformer_object method of DataTransformation class
+[ 2025-07-12 13:18:53,029 ] root - INFO - Transformers Initialized: StandardScaler-MinMaxScaler
+[ 2025-07-12 13:18:53,030 ] root - INFO - Cols loaded from schema.
+[ 2025-07-12 13:18:53,030 ] root - INFO - Final Pipeline Ready!!
+[ 2025-07-12 13:18:53,030 ] root - INFO - Exited get_data_transformer_object method of DataTransformation class
+[ 2025-07-12 13:18:53,031 ] root - INFO - Got the preprocessor object
+[ 2025-07-12 13:18:53,031 ] root - INFO - Initializing transformation for Training-data
+[ 2025-07-12 13:18:53,078 ] root - INFO - Initializing transformation for Testing-data
+[ 2025-07-12 13:18:53,093 ] root - INFO - Transformation done end to end to train-test df.
+[ 2025-07-12 13:18:53,093 ] root - INFO - Applying SMOTEENN for handling imbalanced dataset.
+[ 2025-07-12 13:19:54,023 ] root - INFO - SMOTEENN applied to train-test df.
+[ 2025-07-12 13:19:54,042 ] root - INFO - feature-target concatenation done for train-test df.
+[ 2025-07-12 13:19:54,042 ] root - INFO - Entered save_object method of utils
+[ 2025-07-12 13:19:54,051 ] root - INFO - Exited the save_object method .
+[ 2025-07-12 13:19:54,081 ] root - INFO - Saving transformation object and transformed files.
+------------------------------------------------------------------------------------------------
+Starting Model Trainer Component
+[ 2025-07-12 13:19:54,161 ] root - INFO - train-test data loaded
+[ 2025-07-12 13:19:54,162 ] root - INFO - Training RandomForestClassifier with specified parameters
+[ 2025-07-12 13:19:54,162 ] root - INFO - train-test split done.
+[ 2025-07-12 13:19:54,163 ] root - INFO - Model training going on...
+[ 2025-07-12 13:21:43,788 ] root - INFO - Model training done.
+[ 2025-07-12 13:21:45,392 ] root - INFO - Model object and artifact loaded.
+[ 2025-07-12 13:21:45,411 ] root - INFO - Preprocessing obj loaded.
+[ 2025-07-12 13:21:50,472 ] root - INFO - Saving new model as performace is better than previous one.
+[ 2025-07-12 13:21:50,477 ] root - INFO - Entered save_object method of utils 
+[ 2025-07-12 13:21:50,635 ] root - INFO - Exited the save_object method .
+[ 2025-07-12 13:21:50,635 ] root - INFO - Saved final model object that includes both preprocessing and the trained model
+[ 2025-07-12 13:21:50,635 ] root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='artifact\\07_12_2025_13_18_10\\model_trainer\\trained_model\\model.pkl', metric_artifact=ClassificationMetricArtifact(f1_score=0.932738239530009, precision_score=0.8832178879572244, recall_score=0.9881414565614756))
+------------------------------------------------------------------------------------------------
+[ 2025-07-12 13:21:50,641 ] root - INFO - Initialized Model Evaluation Component.
+[ 2025-07-12 13:21:50,843 ] root - INFO - Test data loaded and now transforming it for prediction...
+[ 2025-07-12 13:21:50,843 ] root - INFO - Mapping 'Gender' column to binary values
+[ 2025-07-12 13:21:50,855 ] root - INFO - Dropping 'id' column
+[ 2025-07-12 13:21:50,861 ] root - INFO - Creating dummy variables for categorical features
+[ 2025-07-12 13:21:50,885 ] root - INFO - Renaming specific columns and casting to int
+[ 2025-07-12 13:21:50,941 ] root - INFO - Trained model loaded/exists.
+[ 2025-07-12 13:21:50,941 ] root - INFO - F1_Score for this model: 0.932738239530009
+[ 2025-07-12 13:21:51,801 ] root - INFO - Entered the get_bucket method of SimpleStorageService class
+[ 2025-07-12 13:21:51,804 ] root - INFO - Exited the get_bucket method of SimpleStorageService class
+[ 2025-07-12 13:21:53,488 ] root - INFO - Result: EvaluateModelResponse(trained_model_f1_score=0.932738239530009, best_model_f1_score=None, is_model_accepted=True, difference=0.932738239530009)
+[ 2025-07-12 13:21:53,499 ] root - INFO - Model evaluation artifact: ModelEvaluationArtifact(is_model_accepted=True, changed_accuracy=0.932738239530009, s3_model_path='model.pkl', trained_model_path='artifact\\07_12_2025_13_18_10\\model_trainer\\trained_model\\model.pkl')
+[ 2025-07-12 13:21:53,500 ] root - INFO - Entered initiate_model_pusher method of ModelTrainer class
+------------------------------------------------------------------------------------------------
+[ 2025-07-12 13:21:53,501 ] root - INFO - Uploading artifacts folder to s3 bucket
+[ 2025-07-12 13:21:53,503 ] root - INFO - Uploading new model to S3 bucket....
+[ 2025-07-12 13:21:53,503 ] root - INFO - Entered the upload_file method of SimpleStorageService class
+[ 2025-07-12 13:21:53,504 ] root - INFO - Uploading artifact\07_12_2025_13_18_10\model_trainer\trained_model\model.pkl to model.pkl in vehicle-insurance-prediction
+[ 2025-07-12 13:22:41,870 ] root - INFO - Uploaded artifact\07_12_2025_13_18_10\model_trainer\trained_model\model.pkl to model.pkl in vehicle-insurance-prediction
+[ 2025-07-12 13:22:41,875 ] root - INFO - Exited the upload_file method of SimpleStorageService class
+[ 2025-07-12 13:22:41,875 ] root - INFO - Uploaded artifacts folder to s3 bucket
+[ 2025-07-12 13:22:41,875 ] root - INFO - Model pusher artifact: [ModelPusherArtifact(bucket_name='vehicle-insurance-prediction', s3_model_path='model.pkl')]
+[ 2025-07-12 13:22:41,875 ] root - INFO - Exited initiate_model_pusher method of ModelTrainer class
+(vehicle) PS C:\Users\HP\Desktop\MLops vikash das\Project 1\mlops-vehicle-insurance-prediction-project->
+
+
+
+(vehicle) PS C:\Users\HP\Desktop\MLops vikash das\Project 1\mlops-vehicle-insurance-prediction-project-> python app.py  
+INFO:     Started server process [51964]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58056 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58056 - "GET /static/css/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58056 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+[ 2025-07-12 13:26:30,193 ] root - INFO - Entered get_usvisa_data_as_dict method as VehicleData class
+[ 2025-07-12 13:26:30,193 ] root - INFO - Created vehicle data dict
+[ 2025-07-12 13:26:30,194 ] root - INFO - Exited get_vehicle_data_as_dict method as VehicleData class
+[ 2025-07-12 13:26:30,199 ] root - INFO - Entered predict method of VehicleDataClassifier class
+[ 2025-07-12 13:26:30,732 ] root - INFO - Entered the get_file_object method of SimpleStorageService class
+[ 2025-07-12 13:26:30,732 ] root - INFO - Entered the get_bucket method of SimpleStorageService class
+[ 2025-07-12 13:26:30,735 ] root - INFO - Exited the get_bucket method of SimpleStorageService class
+[ 2025-07-12 13:26:32,360 ] root - INFO - Exited the get_file_object method of SimpleStorageService class
+[ 2025-07-12 13:26:46,602 ] root - INFO - Production model loaded from S3 bucket.
+[ 2025-07-12 13:26:46,604 ] root - INFO - Starting prediction process.
+[ 2025-07-12 13:26:46,619 ] root - INFO - Using the trained model to get predictions
+INFO:     127.0.0.1:58081 - "POST / HTTP/1.1" 200 OK
+[ 2025-07-12 13:33:49,032 ] root - INFO - Entered get_usvisa_data_as_dict method as VehicleData class
+[ 2025-07-12 13:33:49,032 ] root - INFO - Created vehicle data dict
+[ 2025-07-12 13:33:49,033 ] root - INFO - Exited get_vehicle_data_as_dict method as VehicleData class
+[ 2025-07-12 13:33:49,034 ] root - INFO - Entered predict method of VehicleDataClassifier class
+[ 2025-07-12 13:33:49,034 ] root - INFO - Entered the get_file_object method of SimpleStorageService class
+[ 2025-07-12 13:33:49,034 ] root - INFO - Entered the get_bucket method of SimpleStorageService class
+[ 2025-07-12 13:33:49,038 ] root - INFO - Exited the get_bucket method of SimpleStorageService class
+[ 2025-07-12 13:33:50,670 ] root - INFO - Exited the get_file_object method of SimpleStorageService class
+[ 2025-07-12 13:33:57,874 ] root - INFO - Production model loaded from S3 bucket.
+[ 2025-07-12 13:33:57,875 ] root - INFO - Starting prediction process.
+[ 2025-07-12 13:33:57,881 ] root - INFO - Using the trained model to get predictions
+INFO:     127.0.0.1:58228 - "POST / HTTP/1.1" 200 OK
