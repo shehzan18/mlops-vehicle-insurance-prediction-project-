@@ -1,10 +1,17 @@
 import os
+from dotenv import load_dotenv
+from pathlib import Path
 from datetime import date
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
+ENV_PATH = ROOT_DIR / ".env"
+
+load_dotenv(ENV_PATH, override=True) 
 
 # For MongoDB connection
 DATABASE_NAME = "Proj1"
 COLLECTION_NAME = "Proj1-Data"
-MONGODB_URL_KEY = # mongo db url key
+MONGODB_URL_KEY = os.getenv("MONGODB_CONNECTION_STRING")  
 
 PIPELINE_NAME: str = ""
 ARTIFACT_DIR: str = "artifact"
@@ -21,35 +28,38 @@ TEST_FILE_NAME: str = "test.csv"
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 
 
-AWS_ACCESS_KEY_ID_ENV_KEY = # aws key 
-AWS_SECRET_ACCESS_KEY_ENV_KEY =  # aws secret key 
-REGION_NAME = "us-east-1"
+AWS_ACCESS_KEY_ID_ENV_KEY = os.getenv("AWS_ACCESS_KEY_ID_ENV_KEY")  # aws access key
+AWS_SECRET_ACCESS_KEY_ENV_KEY = os.getenv("AWS_SECRET_ACCESS_KEY_ENV_KEY")  # aws secret key
+REGION_NAME = os.getenv("REGION_NAME",  "us-east-1") # aws region name
+
+
+
 
 
 """
-Data Ingestion related constant start with DATA_INGESTION VAR NAME
+Data Ingestion related constant 
 """
 DATA_INGESTION_COLLECTION_NAME: str = "Proj1-Data"
 DATA_INGESTION_DIR_NAME: str = "data_ingestion"
 DATA_INGESTION_FEATURE_STORE_DIR: str = "feature_store"
 DATA_INGESTION_INGESTED_DIR: str = "ingested"
-DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.25
+DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.25  
 
 """
-Data Validation realted contant start with DATA_VALIDATION VAR NAME
+Data Validation realted contant 
 """
 DATA_VALIDATION_DIR_NAME: str = "data_validation"
 DATA_VALIDATION_REPORT_FILE_NAME: str = "report.yaml"
 
 """
-Data Transformation ralated constant start with DATA_TRANSFORMATION VAR NAME
+Data Transformation ralated constant 
 """
 DATA_TRANSFORMATION_DIR_NAME: str = "data_transformation"
 DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR: str = "transformed"
 DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR: str = "transformed_object"
 
 """
-MODEL TRAINER related constant start with MODEL_TRAINER var name
+MODEL TRAINER related constant 
 """
 MODEL_TRAINER_DIR_NAME: str = "model_trainer"
 MODEL_TRAINER_TRAINED_MODEL_DIR: str = "trained_model"

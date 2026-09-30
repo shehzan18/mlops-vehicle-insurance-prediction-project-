@@ -148,10 +148,9 @@ class DataTransformation:
             input_feature_train_final, target_feature_train_final = smt.fit_resample(
                 input_feature_train_arr, target_feature_train_df
             )
-            input_feature_test_final, target_feature_test_final = smt.fit_resample(
-                input_feature_test_arr, target_feature_test_df
-            )
-            logging.info("SMOTEENN applied to train-test df.")
+            input_feature_test_final = input_feature_test_arr
+            target_feature_test_final = target_feature_test_df 
+            logging.info("SMOTEENN applied to train df.")
 
             train_arr = np.c_[input_feature_train_final, np.array(target_feature_train_final)]
             test_arr = np.c_[input_feature_test_final, np.array(target_feature_test_final)]
@@ -169,7 +168,7 @@ class DataTransformation:
             )
         
         except Exception as e:
-            raise MyException(e , sys)   
+            raise MyException(e , sys)     
         
         
 

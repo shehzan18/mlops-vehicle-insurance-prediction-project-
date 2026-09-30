@@ -10,7 +10,7 @@ from src.constants import DATABASE_NAME , MONGODB_URL_KEY
 ca= certifi.where()
 
 class MongoDBClient:
-
+    """This class is used to create a connection with MongoDB database and perform operations on it."""
     client = None
 
     def __init__(self , database_name : str = DATABASE_NAME) -> None:

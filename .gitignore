@@ -6,6 +6,7 @@ __pycache__/
 # files ignored by me
 info.txt
 artifact/
+explanations/
 
 # C extensions
 *.so

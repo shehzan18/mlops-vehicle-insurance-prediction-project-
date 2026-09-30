@@ -21,9 +21,17 @@ class DataIngestion:
             raise MyException(e , sys)
         
     def store_data_into_feature_store(self) -> DataFrame :
+
+        """
+        Method Name :   export_data_into_feature_store
+        Description :   This method exports data from mongodb to csv file
+
+        Output      :   data is returned as artifact of data ingestion components
+        """
+
         try:
             logging.info("Exporting data from mongodb")
-            my_data = Proj1Data()
+            my_data = Proj1Data() 
             dataframe = my_data.export_collection_as_dataframe(collection_name= self.data_ingestion_config.collection_name )
 
             logging.info(f"Shape of datafame : {dataframe.shape}")
@@ -38,12 +46,20 @@ class DataIngestion:
             raise MyException(e,sys) 
     
     def split_data_as_train_test(self , dataframe : DataFrame) -> DataFrame:
+
+        """
+        Method Name :   split_data_as_train_test
+        Description :   This method splits the dataframe into train set and test set based on split ratio 
+        
+        Output      :   Folder is created and train and test data is saved in the folder as csv file
+        """
+
         logging.info("Entered split split_data_as_train_tes in data_ingestion")
 
         try:
-            train_set , test_set = train_test_split(dataframe , test_size= DataIngestionConfig.train_test_split_ratio)
+            train_set , test_set = train_test_split(dataframe , test_size= DataIngestionConfig.train_test_split_ratio, random_state= 42)
             data_dir = os.path.dirname(self.data_ingestion_config.training_file_path)
-            os.makedirs(data_dir , exist_ok= True)
+            os.makedirs(data_dir , exist_ok= True) 
 
             train_set.to_csv(self.data_ingestion_config.training_file_path , index = False , header = True )  
             test_set.to_csv(self.data_ingestion_config.testing_file_path , index = False , header = True )   

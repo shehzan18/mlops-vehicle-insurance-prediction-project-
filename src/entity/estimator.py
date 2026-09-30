@@ -2,7 +2,7 @@ import sys
 
 import pandas as pd
 from pandas import DataFrame
-from sklearn.pipeline import Pipeline
+from sklearn.pipeline import Pipeline 
 
 from src.exception import MyException
 from src.logger import logging
@@ -19,12 +19,12 @@ class TargetValueMapping:
 
 class MyModel:
     def __init__(self, preprocessing_object: Pipeline, trained_model_object: object):
-        ]
+        
         self.preprocessing_object = preprocessing_object
         self.trained_model_object = trained_model_object
 
     def predict(self, dataframe: pd.DataFrame) -> DataFrame:
-        ]
+        
         try:
             logging.info("Starting prediction process.")
 

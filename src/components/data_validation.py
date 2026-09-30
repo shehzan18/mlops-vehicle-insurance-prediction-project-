@@ -24,10 +24,16 @@ class DataValidation:
             self._schema_config = read_yaml_file(file_path=SCHEMA_FILE_PATH)
 
         except Exception as e:
-            raise MyException(e ,sys)
+            raise MyException(e ,sys) 
         
     def validate_number_of_columns(self , dataframe : DataFrame) -> bool:
+
+        """
+        Method Name :   validate_number_of_columns
+        Description :   This method validates the number of columns
         
+        Output      :   Returns bool value based on validation results
+        """
         try:
             status = len(dataframe.columns) == len(self._schema_config["columns"])
             logging.info(f"Is required columns present [{status}]") 
@@ -37,6 +43,13 @@ class DataValidation:
             raise MyException(e ,sys)
         
     def is_column_exist(self , df : DataFrame) -> bool :
+        """
+        Method Name :   is_column_exist
+        Description :   This method validates the existence of a numerical and categorical columns
+        
+        Output      :   Returns bool value based on validation results
+        """
+
         try:
             df_columns = df.columns
             missing_numeric_col = []
@@ -44,7 +57,7 @@ class DataValidation:
 
             for num_col in self._schema_config["numerical_columns"]:
                 if num_col not in df_columns:
-                    missing_numeric_col.append(num_col)
+                    missing_numeric_col.append(num_col) 
 
             if(len(missing_numeric_col) > 0):
                 logging.info(f"Missing numerical columns : {missing_numeric_col}")

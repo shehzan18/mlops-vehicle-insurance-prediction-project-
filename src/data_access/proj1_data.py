@@ -9,6 +9,7 @@ from src.constants import DATABASE_NAME
 from src.configuration.mongo_db_connection import MongoDBClient 
 
 class Proj1Data:
+    """This class is used to fetch data from MongoDB database and return it as a pandas DataFrame."""
 
     def __init__(self) -> None:
 
@@ -31,7 +32,7 @@ class Proj1Data:
             logging.info("Fetching data from mongodb")
             df = pd.DataFrame(list(collection.find()))
             logging.info(f"Data fetched with length {len(df)}")
-            if "id" in df.columns.to_list():
+            if "id" in df.columns.to_list(): 
                 df = df.drop(columns= ["id"] , axis= 1)
             df.replace({"na": np.nan} , inplace=True)
             return df

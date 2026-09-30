@@ -23,7 +23,12 @@ class ModelTrainer:
 
     
     def get_model_object_and_report(self , train : np.array , test : np.array) -> Tuple[object , object]:
-
+        """
+        Method Name :   get_model_object_and_report
+        Description :   This function trains a RandomForestClassifier with specified parameters
+        
+        Output      :   Returns metric artifact object and trained model object
+        """ 
         try:
             logging.info("Training RandomForestClassifier with specified parameters")
             x_train , y_train , x_test , y_test = train[:, :-1], train[:, -1], test[:, :-1], test[:, -1]
@@ -50,7 +55,7 @@ class ModelTrainer:
             recall = recall_score(y_test, y_pred) 
 
             metric_artifact = ClassificationMetricArtifact(f1_score= f1 , precision_score= precision , recall_score= recall)
-            return model , metric_artifact
+            return model , metric_artifact 
         
         except Exception as  e:
             raise MyException(e , sys)
