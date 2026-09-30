@@ -10,7 +10,7 @@ from src.entity.artifact_entity import DataIngestionArtifact
 from src.exception import MyException
 from src.logger import logging
 from src.data_access.proj1_data import Proj1Data
-
+ 
 class DataIngestion:
     def __init__(self  , data_ingestion_config : DataIngestionConfig = DataIngestionConfig()):
 
@@ -28,14 +28,14 @@ class DataIngestion:
 
             logging.info(f"Shape of datafame : {dataframe.shape}")
             feature_store_file_path = self.data_ingestion_config.feature_store_file_path
-            dir_path = os.path.dirname(feature_store_file_path)
-            os.makedirs(dir_path , exist_ok= True)
+            dir_path = os.path.dirname(feature_store_file_path) 
+            os.makedirs(dir_path , exist_ok= True) 
             logging.info(f"Saving exported data into feature store file path {dir_path}")
             dataframe.to_csv(feature_store_file_path,index=False,header=True)
             return dataframe
 
         except Exception as e:
-            raise MyException(e,sys)
+            raise MyException(e,sys) 
     
     def split_data_as_train_test(self , dataframe : DataFrame) -> DataFrame:
         logging.info("Entered split split_data_as_train_tes in data_ingestion")
@@ -47,7 +47,7 @@ class DataIngestion:
 
             train_set.to_csv(self.data_ingestion_config.training_file_path , index = False , header = True )  
             test_set.to_csv(self.data_ingestion_config.testing_file_path , index = False , header = True )   
-            logging.info(f"Exported train and test file path.")
+            logging.info(f"Exported train and test file path.") 
 
         except Exception as e:
             raise MyException(e, sys) from e   
@@ -56,11 +56,11 @@ class DataIngestion:
         logging.info("Entered initiate_data_ingestion method of Data_Ingestion class")
 
         try :
-            dataframe = self.store_data_into_feature_store()
+            dataframe = self.store_data_into_feature_store() 
 
             logging.info("Got the data from mongodb")
 
-            self.split_data_as_train_test(dataframe)
+            self.split_data_as_train_test(dataframe) 
 
             logging.info("Performed train test split on data.")
 
@@ -73,6 +73,6 @@ class DataIngestion:
             return data_ingestion_artifact
         except Exception as e:
             raise MyException(e, sys) from e
-        
+         
 
 

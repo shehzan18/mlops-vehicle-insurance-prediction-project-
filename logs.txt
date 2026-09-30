@@ -1,4 +1,4 @@
-(vehicle) PS C:\Users\HP\Desktop\MLops vikash das\Project 1\mlops-vehicle-insurance-prediction-project-> python demo.py 
+(vehicle) PS C:\Users\HP\Desktop\Project 1\mlops-vehicle-insurance-prediction-project-> python demo.py 
 [ 2025-07-12 13:18:12,031 ] root - INFO - Entered the start_data_ingestion method of TrainPipeline class
 [ 2025-07-12 13:18:12,032 ] root - INFO - Getting the data from mongodb
 [ 2025-07-12 13:18:12,032 ] root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
@@ -128,4 +128,4 @@ INFO:     127.0.0.1:58081 - "POST / HTTP/1.1" 200 OK
 [ 2025-07-12 13:33:57,874 ] root - INFO - Production model loaded from S3 bucket.
 [ 2025-07-12 13:33:57,875 ] root - INFO - Starting prediction process.
 [ 2025-07-12 13:33:57,881 ] root - INFO - Using the trained model to get predictions
-INFO:     127.0.0.1:58228 - "POST / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58228 - "POST / HTTP/1.1" 200 OK   

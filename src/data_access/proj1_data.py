@@ -6,7 +6,7 @@ from typing import Optional
 from src.logger import logging
 from src.exception import MyException
 from src.constants import DATABASE_NAME
-from src.configuration.mongo_db_connection import MongoDBClient
+from src.configuration.mongo_db_connection import MongoDBClient 
 
 class Proj1Data:
 
@@ -37,7 +37,7 @@ class Proj1Data:
             return df
         
         except Exception as e:
-            MyException(e , sys)
+            MyException(e , sys)  
 
 
 

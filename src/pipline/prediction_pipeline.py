@@ -95,4 +95,4 @@ class VehicleDataClassifier:
             return result
         
         except Exception as e:
-            raise MyException(e, sys)
+            raise MyException(e, sys) 

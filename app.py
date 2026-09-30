@@ -110,7 +110,7 @@ async def predictRouteClient(request: Request):
                                 Vehicle_Age_lt_1_Year = form.Vehicle_Age_lt_1_Year,
                                 Vehicle_Age_gt_2_Years = form.Vehicle_Age_gt_2_Years,
                                 Vehicle_Damage_Yes = form.Vehicle_Damage_Yes
-                                )
+                                ) 
 
         # convert form data into a DataFrame for the model
         vehicle_df = vehicle_data.get_vehicle_input_data_frame()
@@ -135,4 +135,4 @@ async def predictRouteClient(request: Request):
 
 # main entry point to start the server
 if __name__ == "__main__":
-    app_run(app, host=APP_HOST, port=APP_PORT)
+    app_run(app, host=APP_HOST, port=APP_PORT)   

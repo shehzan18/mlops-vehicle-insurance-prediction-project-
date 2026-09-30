@@ -1,5 +1,5 @@
 import sys
-from typing import Tuple
+from typing import Tuple  
 
 import numpy as np
 import pandas as pd
@@ -11,7 +11,7 @@ from src.exception import MyException
 from src.entity.config_entity import DataTransformationConfig , ModelTrainerConfig 
 from src.entity.artifact_entity import DataTransformationArtifact , ModelTrainerArtifact , ClassificationMetricArtifact
 from src.utils.main_utils import * 
-from src.entity.estimator import MyModel
+from src.entity.estimator import MyModel 
 
 class ModelTrainer:
 
@@ -37,7 +37,7 @@ class ModelTrainer:
                 criterion = self.model_trainer_config._criterion,
                 random_state = self.model_trainer_config._random_state
                 
-            )
+            ) 
 
             logging.info("Model training going on...")
             model.fit(x_train, y_train)
@@ -47,7 +47,7 @@ class ModelTrainer:
             accuracy = accuracy_score(y_test , y_pred)
             f1  = f1_score(y_test , y_pred)
             precision = precision_score(y_test , y_pred)
-            recall = recall_score(y_test, y_pred)
+            recall = recall_score(y_test, y_pred) 
 
             metric_artifact = ClassificationMetricArtifact(f1_score= f1 , precision_score= precision , recall_score= recall)
             return model , metric_artifact

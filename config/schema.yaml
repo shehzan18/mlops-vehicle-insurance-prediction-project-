@@ -10,7 +10,7 @@ columns:
   - Annual_Premium: float
   - Policy_Sales_Channel: float
   - Vintage: int
-  - Response: int
+  - Response: int  
 
 
 numerical_columns:
@@ -26,7 +26,7 @@ numerical_columns:
 categorical_columns:
   - Gender
   - Vehicle_Age
-  - Vehicle_Damage
+  - Vehicle_Damage 
 
 drop_columns: _id
 
@@ -37,4 +37,4 @@ num_features:
 
 
 mm_columns:
-  - Annual_Premium
+  - Annual_Premium 

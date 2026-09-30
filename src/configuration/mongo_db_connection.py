@@ -1,6 +1,6 @@
 import os
 import sys
-import pymongo
+import pymongo  
 import certifi
 
 from src.logger import logging
@@ -26,11 +26,11 @@ class MongoDBClient:
 
             self.client = MongoDBClient.client
             self.database = self.client[database_name]
-            self.database_name = database_name
+            self.database_name = database_name 
             logging.info("Mongodb connected successfully")
 
         except Exception as e:
-            raise MyException(e , sys)
-        
+            raise MyException(e , sys)  
+         
 
                  

@@ -30,7 +30,7 @@ class DataValidation:
         
         try:
             status = len(dataframe.columns) == len(self._schema_config["columns"])
-            logging.info(f"Is required columns present [{status}]")
+            logging.info(f"Is required columns present [{status}]") 
             return status
         
         except Exception as e:
@@ -62,7 +62,7 @@ class DataValidation:
             raise MyException(e ,sys)
         
         
-    @staticmethod
+    @staticmethod 
     def read_data(file_path : str) -> DataFrame:
         try:
 
@@ -91,7 +91,7 @@ class DataValidation:
             if not status:
                 validation_error_msg+= F"Columns are missing in test dataset . "
             else:
-                logging.info(f"All columns are present in test dataset .")
+                logging.info(f"All columns are present in test dataset .") 
 
             status = self.is_column_exist(df=train_df)
             if not status:
@@ -121,7 +121,7 @@ class DataValidation:
             validation_report = {
                 "validation_status" : validation_status,
                 "validation_message" : validation_error_msg.strip()
-            }
+            } 
 
             with open(self.data_validation_config.validation_report_file_path, "w") as report_file:
                 json.dump(validation_report, report_file, indent=4)

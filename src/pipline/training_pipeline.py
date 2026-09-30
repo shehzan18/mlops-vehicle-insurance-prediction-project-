@@ -27,7 +27,7 @@ from src.entity.artifact_entity import (DataIngestionArtifact,
 class TrainPipeline:
 
     def __init__(self):
-        self.data_ingestion_config = DataIngestionConfig()
+        self.data_ingestion_config = DataIngestionConfig() 
         self.data_validation_config = DataValidationConfig()
         self.data_transformation_config = DataTransformationConfig()
         self.model_trainer_config = ModelTrainerConfig()
@@ -42,7 +42,7 @@ class TrainPipeline:
             data_ingestion_artifact = data_ingestion.initiate_data_ingestion()
             logging.info("Got the train_set and test_set from mongodb")
             logging.info("Exited the start_data_ingestion method of TrainPipeline class")
-            return data_ingestion_artifact
+            return data_ingestion_artifact  
         except Exception as e:
             raise MyException(e, sys) from e
         
@@ -118,7 +118,7 @@ class TrainPipeline:
             model_pusher_artifact = model_pusher.initiate_model_pusher()
             return model_pusher_artifact
         except Exception as e:
-            raise MyException(e, sys)
+            raise MyException(e, sys) 
             
         
 
@@ -144,5 +144,6 @@ class TrainPipeline:
             
 
         except Exception as e:
-            raise MyException(e , sys)
+            raise MyException(e , sys) 
         
+

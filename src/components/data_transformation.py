@@ -109,7 +109,7 @@ class DataTransformation:
             logging.info("Data Transformation Started !!!")
 
             if not self.data_validation_artifact.validation_status:
-                raise Exception(self.data_validation_artifact.message)
+                raise Exception(self.data_validation_artifact.message) 
             
             train_df = self.read_data(file_path= self.data_ingestion_artifact.trained_file_path)
             test_df = self.read_data(file_path= self.data_ingestion_artifact.test_file_path)
@@ -169,7 +169,7 @@ class DataTransformation:
             )
         
         except Exception as e:
-            raise MyException(e , sys)
+            raise MyException(e , sys)   
         
         
 

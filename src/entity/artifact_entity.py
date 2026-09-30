@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 
-@dataclass
+@dataclass 
 class DataIngestionArtifact:
     trained_file_path : str
-    test_file_path : str
+    test_file_path : str  
 
 @dataclass
 class DataValidationArtifact:
@@ -25,7 +25,7 @@ class ClassificationMetricArtifact:
 
 
 @dataclass
-class ModelTrainerArtifact:
+class ModelTrainerArtifact: 
     trained_model_file_path : str 
     metric_artifact : ClassificationMetricArtifact
 

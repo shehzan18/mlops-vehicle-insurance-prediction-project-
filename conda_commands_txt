@@ -1,0 +1,6 @@
+conda env list  // to see all the environments 
+conda activate env_name // to activate an environment
+
+conda create -n env_name python=3.10 -y // create an environment
+
+conda env remove -n env_name // to deleta an environment
