@@ -11,16 +11,16 @@ load_dotenv(ENV_PATH, override=True)
 # For MongoDB connection
 DATABASE_NAME = "Proj1"
 COLLECTION_NAME = "Proj1-Data"
-MONGODB_URL_KEY = os.getenv("MONGODB_CONNECTION_STRING")  
+MONGODB_URL_KEY = os.getenv("MONGODB_CONNECTION_STRING")   
 
 PIPELINE_NAME: str = ""
 ARTIFACT_DIR: str = "artifact"
 
 MODEL_FILE_NAME = "model.pkl"
 
-TARGET_COLUMN = "Response"
-CURRENT_YEAR = date.today().year
-PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
+TARGET_COLUMN = "Response"   
+CURRENT_YEAR = date.today().year   
+PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"   
 
 FILE_NAME: str = "data.csv"
 TRAIN_FILE_NAME: str = "train.csv"
@@ -30,7 +30,7 @@ SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 
 AWS_ACCESS_KEY_ID_ENV_KEY = os.getenv("AWS_ACCESS_KEY_ID_ENV_KEY")  # aws access key
 AWS_SECRET_ACCESS_KEY_ENV_KEY = os.getenv("AWS_SECRET_ACCESS_KEY_ENV_KEY")  # aws secret key
-REGION_NAME = os.getenv("REGION_NAME",  "us-east-1") # aws region name
+REGION_NAME = os.getenv("REGION_NAME",  "us-east-1") # aws region name 
 
 
 
@@ -77,9 +77,9 @@ MIN_SAMPLES_SPLIT_RANDOM_STATE: int = 101
 MODEL Evaluation related constants
 """
 MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
-MODEL_BUCKET_NAME = "vehicle-insurance-prediction"
+MODEL_BUCKET_NAME = "my-model-mlopsproj2"
 MODEL_PUSHER_S3_KEY = "model-registry"
 
 
 APP_HOST = "0.0.0.0"
-APP_PORT = 5000
+APP_PORT = 5000 

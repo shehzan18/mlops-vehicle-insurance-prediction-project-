@@ -3,7 +3,7 @@ from src.exception import MyException
 from src.entity.estimator import MyModel
 import sys
 from pandas import DataFrame
-
+ 
 
 class Proj1Estimator:
     """
@@ -15,7 +15,7 @@ class Proj1Estimator:
         self.bucket_name = bucket_name
         self.s3 = SimpleStorageService()
         self.model_path = model_path
-        self.loaded_model:MyModel=None
+        self.loaded_model:MyModel=None 
 
 
     def is_model_present(self,model_path):
@@ -52,4 +52,4 @@ class Proj1Estimator:
                 self.loaded_model = self.load_model()
             return self.loaded_model.predict(dataframe=dataframe)
         except Exception as e:
-            raise MyException(e, sys)
+            raise MyException(e, sys) 

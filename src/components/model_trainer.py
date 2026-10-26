@@ -4,14 +4,14 @@ from typing import Tuple
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score , precision_score , recall_score , f1_score
+from sklearn.metrics import accuracy_score , precision_score , recall_score , f1_score 
 
 from src.logger import logging
 from src.exception import MyException
 from src.entity.config_entity import DataTransformationConfig , ModelTrainerConfig 
 from src.entity.artifact_entity import DataTransformationArtifact , ModelTrainerArtifact , ClassificationMetricArtifact
 from src.utils.main_utils import * 
-from src.entity.estimator import MyModel 
+from src.entity.estimator import MyModel   
 
 class ModelTrainer:
 
@@ -19,7 +19,7 @@ class ModelTrainer:
                  model_trainer_config : ModelTrainerConfig) :
         
         self.data_transformation_artifact = data_transformation_artifact
-        self.model_trainer_config = model_trainer_config
+        self.model_trainer_config = model_trainer_config 
 
     
     def get_model_object_and_report(self , train : np.array , test : np.array) -> Tuple[object , object]:

@@ -10,7 +10,6 @@ from botocore.exceptions import ClientError
 from pandas import DataFrame,read_csv
 import pickle
 
-
 class SimpleStorageService:
     """
     Class for interacting with the s3 buckeet and methods to update , upload and retrieve the model in s3
@@ -29,7 +28,7 @@ class SimpleStorageService:
             file_objects = [file_object for file_object in bucket.objects.filter(Prefix=s3_key)]
             return len(file_objects) > 0
         except Exception as e:
-            raise MyException(e, sys)
+            raise MyException(e, sys)  
 
     @staticmethod
     def read_object(object_name: str, decode: bool = True, make_readable: bool = False) -> Union[StringIO, str]:
@@ -46,7 +45,7 @@ class SimpleStorageService:
             # logging.info("Exited the read_object method of SimpleStorageService class")
             return conv_func()
         except Exception as e:
-            raise MyException(e, sys) from e
+            raise MyException(e, sys) from e 
 
     def get_bucket(self, bucket_name: str) -> Bucket:
         
@@ -56,13 +55,13 @@ class SimpleStorageService:
             logging.info("Exited the get_bucket method of SimpleStorageService class")
             return bucket
         except Exception as e:
-            raise MyException(e, sys) from e
+            raise MyException(e, sys) from e         
 
     def get_file_object(self, filename: str, bucket_name: str) -> Union[List[object], object]:
         
         logging.info("Entered the get_file_object method of SimpleStorageService class")
         try:
-            bucket = self.get_bucket(bucket_name)
+            bucket = self.get_bucket(bucket_name) 
             file_objects = [file_object for file_object in bucket.objects.filter(Prefix=filename)]
             func = lambda x: x[0] if len(x) == 1 else x
             file_objs = func(file_objects)
@@ -81,7 +80,7 @@ class SimpleStorageService:
             logging.info("Production model loaded from S3 bucket.")
             return model
         except Exception as e:
-            raise MyException(e, sys) from e
+            raise MyException(e, sys) from e 
 
     def create_folder(self, folder_name: str, bucket_name: str) -> None:
  
@@ -110,8 +109,9 @@ class SimpleStorageService:
                 logging.info(f"Removed local file {from_filename} after upload")
             logging.info("Exited the upload_file method of SimpleStorageService class")
         except Exception as e:
-            raise MyException(e, sys) from e
+            raise MyException(e, sys) from e 
 
+        
     def upload_df_as_csv(self, data_frame: DataFrame, local_filename: str, bucket_filename: str, bucket_name: str) -> None:
 
         logging.info("Entered the upload_df_as_csv method of SimpleStorageService class")

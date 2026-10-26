@@ -1,9 +1,10 @@
 import boto3
 import os
-from src.constants import AWS_SECRET_ACCESS_KEY_ENV_KEY, AWS_ACCESS_KEY_ID_ENV_KEY, REGION_NAME
+from src.constants import (AWS_SECRET_ACCESS_KEY_ENV_KEY, 
+                           AWS_ACCESS_KEY_ID_ENV_KEY,
+                           REGION_NAME)
 from dotenv import load_dotenv
-load_dotenv()
-
+load_dotenv() 
 
 
 class S3Client:
@@ -34,4 +35,4 @@ class S3Client:
                                         region_name=region_name
                                         )
         self.s3_resource = S3Client.s3_resource
-        self.s3_client = S3Client.s3_client
+        self.s3_client = S3Client.s3_client 

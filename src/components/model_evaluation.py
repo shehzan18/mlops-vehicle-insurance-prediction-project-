@@ -35,7 +35,7 @@ class ModelEvaluation:
         try:
             bucket_name = self.model_eval_config.bucket_name
             model_path=self.model_eval_config.s3_model_key_path
-            proj1_estimator = Proj1Estimator(bucket_name=bucket_name,
+            proj1_estimator = Proj1Estimator(bucket_name=bucket_name, 
                                                model_path=model_path)
 
             if proj1_estimator.is_model_present(model_path=model_path):
@@ -132,3 +132,4 @@ class ModelEvaluation:
             return model_evaluation_artifact
         except Exception as e:
             raise MyException(e, sys) from e  
+        

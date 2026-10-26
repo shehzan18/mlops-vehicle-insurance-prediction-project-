@@ -144,7 +144,7 @@ class DataValidation:
             return data_validation_artifact
         
         except Exception as e:
-            raise MyException(e, sys) from e
+            raise MyException(e, sys) from e   
 
 
             

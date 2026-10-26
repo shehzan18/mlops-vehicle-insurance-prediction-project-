@@ -6,14 +6,14 @@ from pandas import DataFrame
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler , StandardScaler
 from sklearn.compose import ColumnTransformer
-from imblearn.combine import SMOTEENN
+from imblearn.combine import SMOTEENN 
 
 from src.constants import TARGET_COLUMN , SCHEMA_FILE_PATH , CURRENT_YEAR
 from src.entity.config_entity import DataTransformationConfig
 from src.entity.artifact_entity import DataIngestionArtifact , DataValidationArtifact , DataTransformationArtifact
 from src.logger import logging
 from src.exception import MyException
-from src.utils.main_utils import read_yaml_file , save_numpy_array_data ,save_object
+from src.utils.main_utils import read_yaml_file , save_numpy_array_data ,save_object  
 
 class DataTransformation:
 
@@ -43,7 +43,7 @@ class DataTransformation:
         logging.info("Entered get_data_transformer_object method of DataTransformation class")
 
         try:
-            numeric_transformer = StandardScaler()
+            numeric_transformer = StandardScaler() 
             min_max_scaler = MinMaxScaler()
             logging.info("Transformers Initialized: StandardScaler-MinMaxScaler")
 
@@ -141,16 +141,17 @@ class DataTransformation:
             input_feature_train_arr = preprocessor.fit_transform(input_feature_train_df)
             logging.info("Initializing transformation for Testing-data")
             input_feature_test_arr = preprocessor.transform(input_feature_test_df)
-            logging.info("Transformation done end to end to train-test df.")
+            logging.info("Transformation done end to end to train-test df.") 
 
             logging.info("Applying SMOTEENN for handling imbalanced dataset.")
             smt = SMOTEENN(sampling_strategy="minority")
             input_feature_train_final, target_feature_train_final = smt.fit_resample(
                 input_feature_train_arr, target_feature_train_df
             )
-            input_feature_test_final = input_feature_test_arr
-            target_feature_test_final = target_feature_test_df 
-            logging.info("SMOTEENN applied to train df.")
+            input_feature_test_final, target_feature_test_final = smt.fit_resample(
+                input_feature_test_arr, target_feature_test_df
+            )
+            logging.info("SMOTEENN applied to train-test df.")
 
             train_arr = np.c_[input_feature_train_final, np.array(target_feature_train_final)]
             test_arr = np.c_[input_feature_test_final, np.array(target_feature_test_final)]
